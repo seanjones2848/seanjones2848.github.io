@@ -1,13 +1,24 @@
-function newDivination() {
-	var book = Math.floor(Math.random() * 10);
-	var iteration = Math.floor(Math.random() * 59) + 1;
-	var raw_URL = "https://raw.githubusercontent.com/seanjones2848/computer_musings/master/txt/book_chop/div_"
-	var divs = [ "1", "24", "42", "5", "6", "666", "7", "777", "8", "9" ];
+var book;
+var iteration;
+var raw_URL = "https://raw.githubusercontent.com/seanjones2848/computer_musings/master/txt/book_chop/div_";
+var divs = [ "1", "24", "42", "5", "6", "666", "7", "777", "8", "9" ];
+
+function setup() {
+	book = Math.floor(Math.random() * 10);
+	iteration = Math.floor(Math.random() * 59) + 1;
 	var div_URL = raw_URL + divs[book];
-	var wholeBook = loadStrings(div_URL);
+	loadStrings(div_URL, get_div);
+}
+
+function get_div(wholeBook) {
+	console.log("wholeBook: " + wholeBook);
 	var div_start = wholeBook.search("Iteration " + iteration);
 	var div_stop = wholeBook.search("Iteration " + (iteration + 1));
 	var divination = "Book: " + book + "\nChapter: " + iteration + "\n" + wholeBook.substring(div_start, div_stop);
-	console.log(divination);
+	console.log("divination: " + divination);
 	document.getElementById('divinationDisplay').innerHTML = divination;
+}
+
+function newDivination() {
+	setup();
 }
