@@ -12,7 +12,7 @@ function setup() {
 
 function get_div(Book) {
 	var wholeBook = JSON.stringify(Book);
-	var div_start = wholeBook.search(("Iteration " + iteration)) + 60;
+	var div_start = wholeBook.search(("Iteration " + iteration)) + 58;
 	var div_stop = wholeBook.search(("Iteration " + (iteration + 1)));
 	var divination = "Book: " + book + '","' + "Chapter: " + iteration + '","' + wholeBook.substring(div_start, div_stop);
 	var div = divination.replace(/\",\"/g, '<br>');
