@@ -10,8 +10,8 @@ function setup() {
 	loadStrings(div_URL, get_div);
 }
 
-function get_div(wholeBook) {
-	console.log("wholeBook: " + wholeBook, typeof JSON.stringify(wholeBook));
+function get_div(Book) {
+	var wholeBook = JSON.stringify(Book);
 	var div_start = wholeBook.search(("Iteration " + iteration));
 	var div_stop = wholeBook.search(("Iteration " + (iteration + 1)));
 	var divination = "Book: " + book + "\nChapter: " + iteration + "\n" + wholeBook.substring(div_start, div_stop);
