@@ -15,7 +15,7 @@ function get_div(Book) {
 	var div_start = wholeBook.search(("Iteration " + iteration));
 	var div_stop = wholeBook.search(("Iteration " + (iteration + 1)));
 	var divination = "Book: " + book + '","' + wholeBook.substring(div_start, div_stop);
-	divination.replace(new RegExp('","', 'g'), '<br>');
+	divination.replace(/\",\"/g, '<br>');
 	console.log("divination: " + divination);
 	document.getElementById('divinationDisplay').innerHTML = divination;
 }
