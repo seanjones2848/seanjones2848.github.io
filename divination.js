@@ -11,9 +11,9 @@ function setup() {
 }
 
 function get_div(wholeBook) {
-	console.log("wholeBook: " + wholeBook);
-	var div_start = wholeBook.search("Iteration " + iteration);
-	var div_stop = wholeBook.search("Iteration " + (iteration + 1));
+	console.log("wholeBook: " + wholeBook, typeof wholeBook);
+	var div_start = wholeBook.search(("Iteration " + iteration));
+	var div_stop = wholeBook.search(("Iteration " + (iteration + 1)));
 	var divination = "Book: " + book + "\nChapter: " + iteration + "\n" + wholeBook.substring(div_start, div_stop);
 	console.log("divination: " + divination);
 	document.getElementById('divinationDisplay').innerHTML = divination;
