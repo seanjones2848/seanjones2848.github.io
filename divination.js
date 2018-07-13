@@ -11,7 +11,7 @@ function setup() {
 }
 
 function get_div(wholeBook) {
-	console.log("wholeBook: " + wholeBook, typeof wholeBook);
+	console.log("wholeBook: " + wholeBook, typeof JSON.stringify(wholeBook));
 	var div_start = wholeBook.search(("Iteration " + iteration));
 	var div_stop = wholeBook.search(("Iteration " + (iteration + 1)));
 	var divination = "Book: " + book + "\nChapter: " + iteration + "\n" + wholeBook.substring(div_start, div_stop);
