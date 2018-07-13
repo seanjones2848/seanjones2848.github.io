@@ -12,13 +12,12 @@ function setup() {
 
 function get_div(Book) {
 	var wholeBook = JSON.stringify(Book);
-	var div_start = wholeBook.search(("Iteration " + iteration));
+	var div_start = wholeBook.search(("Iteration " + iteration)) + 55;
 	var div_stop = wholeBook.search(("Iteration " + (iteration + 1)));
-	var divination = "Book " + book + '","' + wholeBook.substring(div_start, div_stop);
+	var divination = "Book: " + book + '","' + "Chapter: " + iteration + '","' + wholeBook.substring(div_start, div_stop);
 	var div = divination.replace(/\",\"/g, '<br>');
-	divination = div.replace(/\/\"[a-zA-Z ]{40}\/\"/g, '');
-	console.log("divination: " + divination);
-	document.getElementById('divinationDisplay').innerHTML = divination;
+	console.log("divination: " + div);
+	document.getElementById('divinationDisplay').innerHTML = div;
 }
 
 function newDivination() {
