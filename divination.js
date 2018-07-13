@@ -14,8 +14,7 @@ function get_div(Book) {
 	var wholeBook = JSON.stringify(Book);
 	var div_start = wholeBook.search(("Iteration " + iteration));
 	var div_stop = wholeBook.search(("Iteration " + (iteration + 1)));
-	var divination = "Book: " + book + "\nChapter: " + iteration + "\n" + wholeBook.substring(div_start, div_stop);
-	var div = divination.replace("\n", "<br>");
+	var divination = "Book: " + book + "\n" + wholeBook.substring(div_start, div_stop);
 	console.log("divination: " + div);
 	document.getElementById('divinationDisplay').innerHTML = div;
 }
