@@ -1,22 +1,15 @@
-
-function loadMagic() {
-	var rawFile = new XMLHttpRequest();
-	rawFile.open("GET", "http://github.com/seanjones2848/computer_musings/txt/book_chop/div_666");
-	rawFile.onreadystatechange = function() {
-		if (rawFile.readyState === 4) {
-			if (rawFile.status === 200 || rawFile.status == 0) {
-				var allMagic = rawFile.responseText;
-				alert(allMagic);
-				console.log(allMagic);
-			}
-		}
-	}
+function newDivination() {
+	var raw_URL = "https://raw.githubusercontent.com/seanjones2848/computer_musings/master/txt/book_chop/div_"
+	var divs = [ "1", "24", "42", "5", "6", "666", "7", "777", "8", "9" ];
+	var book = Math.floor(Math.random() * 10);
+	var div_URL = raw_url + divs[book];
+	var div = loadStrings(div_URL, div_get);
 }
 
-function newDivination() {
-	var book = Math.floor(Math.random() * 10);
-	var iteration = Math.floor(Math.random() * 60);
-	var divination = '<p>no magic for you yet {' + book + ',' + iteration + '}</p>';
-	loadMagic();
+function div_get(div) {
+	var iteration = Math.floor(Math.random() * 59) + 1;
+	var div_start = div.search("Iteration " + iteration);
+	var div_stop = div.search("Iteration " + (iteration + 1));
+	var divination = div.substring(div_start, div_stop);
 	document.getElementById('divinationDisplay').innerHTML = divination;
 }
