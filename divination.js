@@ -16,7 +16,7 @@ function get_div(Book) {
 	var div_stop = wholeBook.search(("Iteration " + (iteration + 1)));
 	var divination = "Book " + book + '","' + wholeBook.substring(div_start, div_stop);
 	divination.replace(/\",\"/g, '<br>');
-	divination.replace(/\/\"*{40}\/\"/g, '');
+	divination.replace(/\/\"[a-zA-Z ]{40}\/\"/g, '');
 	console.log("divination: " + divination);
 	document.getElementById('divinationDisplay').innerHTML = divination;
 }
